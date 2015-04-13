@@ -12,7 +12,7 @@ exports.defineManualTests = function(rootEl, addButton) {
         var connected = (connectResult === 0);
         if (connected) {
           chrome.socket.write(socketInfo.socketId, data, function(writeResult) {
-            logger('connectAndWrite: success');
+            console.log('connectAndWrite: success');
             chrome.socket.disconnect(socketInfo.socketId);
             chrome.socket.destroy(socketInfo.socketId);
           });
@@ -28,7 +28,7 @@ exports.defineManualTests = function(rootEl, addButton) {
         if (connected) {
           chrome.socket.write(socketInfo.socketId, data, function(writeResult) {
             chrome.socket.read(socketInfo.socketId, function(readResult) {
-              logger('connectAndRead: success');
+              console.log('connectAndRead: success');
               chrome.socket.disconnect(socketInfo.socketId);
               chrome.socket.destroy(socketInfo.socketId);
             });
@@ -46,7 +46,7 @@ exports.defineManualTests = function(rootEl, addButton) {
       chrome.socket.listen(socketInfo.socketId, addr, port, function(listenResult) {
         chrome.socket.accept(socketInfo.socketId, function(acceptInfo) {
           chrome.socket.read(acceptInfo.socketId, function(readResult) {
-            logger('acceptAndRead: success');
+            console.log('acceptAndRead: success');
             chrome.socket.disconnect(acceptInfo.socketId);
             chrome.socket.destroy(acceptInfo.socketId);
             chrome.socket.disconnect(socketInfo.socketId);
@@ -81,7 +81,7 @@ exports.defineManualTests = function(rootEl, addButton) {
               }
             }
 
-            logger('acceptConnectReadWrite: success');
+            console.log('acceptConnectReadWrite: success');
           });
         });
 
@@ -124,7 +124,7 @@ exports.defineManualTests = function(rootEl, addButton) {
               }
             }
 
-            logger('acceptConnectReadWrite: success');
+            console.log('acceptConnectReadWrite: success');
           });
         });
 
@@ -134,7 +134,7 @@ exports.defineManualTests = function(rootEl, addButton) {
             if (connected) {
               chrome.socket.getInfo(socketInfo.socketId, function(info) {
                 if (info) {
-                  logger(info.socketType + ': connected(' + info.connected + ') ' + (info.connected ? info.peerAddress + ':' + info.peerPort + ' -> ' + info.localAddress + ':' + info.localPort : ''));
+                  console.log(info.socketType + ': connected(' + info.connected + ') ' + (info.connected ? info.peerAddress + ':' + info.peerPort + ' -> ' + info.localAddress + ':' + info.localPort : ''));
                 }
 
                 chrome.socket.write(socketInfo.socketId, data, function(writeResult) {
@@ -152,7 +152,7 @@ exports.defineManualTests = function(rootEl, addButton) {
   function sendTo(data) {
     chrome.socket.create('udp', {}, function(socketInfo) {
       chrome.socket.sendTo(socketInfo.socketId, data, addr, port, function(result) {
-        logger('sendTo: success');
+        console.log('sendTo: success');
         chrome.socket.destroy(socketInfo.socketId);
       });
     });
@@ -162,7 +162,7 @@ exports.defineManualTests = function(rootEl, addButton) {
     chrome.socket.create('udp', {}, function(socketInfo) {
       chrome.socket.bind(socketInfo.socketId, addr, port, function(result) {
         chrome.socket.recvFrom(socketInfo.socketId, function(readResult) {
-          logger('recvFrom: success');
+          console.log('recvFrom: success');
           chrome.socket.destroy(socketInfo.socketId);
         });
       });
@@ -186,7 +186,7 @@ exports.defineManualTests = function(rootEl, addButton) {
             }
           }
 
-          logger('bindRecvFromSendTo: success');
+          console.log('bindRecvFromSendTo: success');
           chrome.socket.destroy(socketInfo.socketId);
         });
 
@@ -223,7 +223,7 @@ exports.defineManualTests = function(rootEl, addButton) {
                     }
                   }
 
-                  logger('bindConnectReadWrite: success');
+                  console.log('bindConnectReadWrite: success');
                   chrome.socket.destroy(socketInfo1.socketId);
                 });
 
@@ -245,16 +245,16 @@ exports.defineManualTests = function(rootEl, addButton) {
     chrome.socket.getNetworkList(function(info) {
       if (!info) return;
       for (var i = 0; i < info.length; i++) {
-        logger(info[i].name + ': ' + info[i].address);
+        console.log(info[i].name + ': ' + info[i].address);
       }
     });
   }
 
   function initPage() {
-    logger('Run this in terminal:');
-    logger('while true; do');
-    logger('  (nc -lv 1234 | xxd) || break; echo;');
-    logger('done');
+    console.log('Run this in terminal:');
+    console.log('while true; do');
+    console.log('  (nc -lv 1234 | xxd) || break; echo;');
+    console.log('done');
 
     var arr = new Uint8Array(256);
     for (var i = 0; i < arr.length; i++) {
