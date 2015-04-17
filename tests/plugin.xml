@@ -5,7 +5,7 @@
   found in the LICENSE file.
 -->
 <plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
-    id="org.chromium.socket.tests"
+    id="cordova-plugin-chrome-apps-socket-tests"
     version="1.2.3-dev">
 
   <name>Chrome Apps Socket Tests</name>
