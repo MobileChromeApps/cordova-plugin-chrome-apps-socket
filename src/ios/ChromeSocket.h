@@ -7,8 +7,6 @@
 
 @interface ChromeSocket : CDVPlugin
 
-- (CDVPlugin*)initWithWebView:(UIWebView*)theWebView;
-
 - (void)create:(CDVInvokedUrlCommand*)command;
 - (void)destroy:(CDVInvokedUrlCommand*)command;
 

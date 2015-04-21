@@ -251,14 +251,10 @@ static NSString* stringFromData(NSData* data) {
 
 @implementation ChromeSocket
 
-- (CDVPlugin*)initWithWebView:(UIWebView*)theWebView
+- (void)pluginInitialize
 {
-    self = [super initWithWebView:theWebView];
-    if (self) {
-        _sockets = [NSMutableDictionary dictionary];
-        _nextSocketId = 0;
-    }
-    return self;
+    _sockets = [NSMutableDictionary dictionary];
+    _nextSocketId = 0;
 }
 
 - (void)destroyAllSockets
