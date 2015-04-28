@@ -4,7 +4,7 @@
 
 var platform = cordova.require('cordova/platform');
 var exec = cordova.require('cordova/exec');
-var network = require('org.chromium.system.network.system.network');
+var network = require('cordova-plugin-chrome-apps-system-network.system.network');
 
 exports.create = function(socketMode, stuff, callback) {
     if (typeof stuff == 'function') {
@@ -222,7 +222,7 @@ exports.joinGroup = function(socketId, address, callback) {
         callback(-1000);
     };
     exec(win, fail, 'ChromeSocket', 'joinGroup', [socketId, address]);
-}
+};
 
 exports.leaveGroup = function(socketId, address, callback) {
     var win = callback && function() {
@@ -232,7 +232,7 @@ exports.leaveGroup = function(socketId, address, callback) {
         callback(-1000);
     };
     exec(win, fail, 'ChromeSocket', 'leaveGroup', [socketId, address]);
-}
+};
 
 exports.setMulticastTimeToLive = function(socketId, ttl, callback) {
     if (platform.id !== 'android') {
@@ -241,7 +241,7 @@ exports.setMulticastTimeToLive = function(socketId, ttl, callback) {
     }
 
     exec(callback, null, 'ChromeSocket', 'setMulticastTimeToLive', [socketId, ttl]);
-}
+};
 
 exports.setMulticastLoopbackMode = function(socketId, enabled, callback) {
     if (platform.id !== 'android') {
@@ -250,7 +250,7 @@ exports.setMulticastLoopbackMode = function(socketId, enabled, callback) {
     }
 
     exec(callback, null, 'ChromeSocket', 'setMulticastLoopbackMode', [socketId, enabled]);
-}
+};
 
 exports.getJoinedGroups = function(socketId, callback) {
     var win = callback;
@@ -258,7 +258,7 @@ exports.getJoinedGroups = function(socketId, callback) {
         callback(-1000);
     };
     exec(win, fail, 'ChromeSocket', 'getJoinedGroups', [socketId]);
-}
+};
 
 /* Converted From chromium/src/net/base/net_error_list.h
 
