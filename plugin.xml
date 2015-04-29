@@ -13,8 +13,8 @@
 
   <name>Chrome Apps Socket API</name>
   <keywords>chrome,socket</keywords>
-  <repo>https://github.com/MobileChromeApps/mobile-chrome-apps.git</repo>
-  <issue>https://github.com/MobileChromeApps/mobile-chrome-apps/issues</issue>
+  <repo>https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-socket.git</repo>
+  <issue>https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-socket/issues</issue>
 
   <dependency id="cordova-plugin-chrome-apps-common" />
   <dependency id="cordova-plugin-chrome-apps-system-network" />
