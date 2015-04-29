@@ -1,0 +1,35 @@
+{
+  "name": "cordova-plugin-chrome-apps-socket",
+  "version": "1.2.3-dev",
+  "description": "This plugin provides client and server sockets for Android and iOS.",
+  "cordova": {
+    "id": "cordova-plugin-chrome-apps-socket",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-socket.git"
+  },
+  "keywords": [
+    "chrome",
+    "socket",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-socket/issues"
+  },
+  "homepage": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-socket"
+}
