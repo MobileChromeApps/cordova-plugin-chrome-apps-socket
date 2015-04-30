@@ -17,6 +17,9 @@ The API reference is [here](http://developer.chrome.com/apps/socket.html).
 
 # Release Notes
 
+## 1.2.3 (April 30, 2015)
+- Renamed plugin to pubilsh to NPM
+
 ## 1.2.2 (November 17, 2014)
  - Make iossocketcommon a `<dependency>` only for iOS platform
 
